@@ -1,21 +1,23 @@
 import fs from 'fs';
 
-//Lectura asincrona
-fs.readFile('./data/example.text', 'utf8', (err, data) => {
-    if (err) throw err;
-    console.log('Contenido del archivo:', data);
-
-});
 
 //Escribir en un nuevo archivo
-fs.writeFile('./data/newfile.txt', 'Contenido nuevo', (err) => {
+fs.writeFile('./newfile.txt', 'Contenido nuevo', (err) => {
     if (err) throw err;
     console.log('Archivo creado y escrito');
 });
 
+
 //Renombrar un archivo
-fs.rename('./data/newfile.txt', './data/renamedfile.txt', (err) => {
+fs.rename('./newfile.txt', './renamedfile.txt', (err) => {
     if (err) throw err;
     console.log('Archivo renombrado');
 });
 
+
+//Lectura asincrona
+fs.readFile('./renamedfile.txt', 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log('Contenido del archivo:', data);
+
+});
